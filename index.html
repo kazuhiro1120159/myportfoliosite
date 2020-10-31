@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazuhiro Shimura</title>
+    <script src="https://sdk.form.run/js/v2/formrun.js"></script>
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="codebegin4.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script>
+    $(window).on('load',function(){
+    // テキストを<span></span>で囲む
+    $('.typing').children().andSelf().contents().each(function() {
+    if (this.nodeType == 3) {
+    $(this).replaceWith($(this).text().replace(/(\S)/g, '<span>$1</span>'));
+    }
+    });
+    // 一文字ずつフェードインさせる
+    $('.typing').css({'opacity':1});
+    for (var i = 0; i <= $('.typing').children().size(); i++) {
+    $('.typing').children('span:eq('+i+')').delay(100*i).animate({'opacity':1},50);
+    };
+    });
+    $('hover').hover(function(){
+  $('this').stop().animate({"opacity":"0"});
+},function(){
+    $(this).stop().animate({"opacity":"1"});
+});
+/*ハンバーガー*/
+$(function() {
+    $('.navToggle').click(function() {
+        $(this).toggleClass('active');
+ 
+        if ($(this).hasClass('active')) {
+            $('.globalMenuSp').addClass('active');
+        } else {
+            $('.globalMenuSp').removeClass('active');
+        }
+    });
+});
+
+/*work　hover*/
+$(function(){
+        $(".content-p").hover(
+            function() {
+                $(this).css("opacity", "0");
+            },
+            function() {
+                $(this).css("opacity", "1");
+            }
+        );
+    });
+$(function(){
+        $(".andmore-p").hover(
+            function() {
+                $(this).css("opacity", "0.5");
+            },
+            function() {
+                $(this).css("opacity", "1");
+            }
+        );
+    });
+    /*全体*/
+    $(function () {
+    $(window).scroll(function () {
+        const wHeight = $(window).height();
+        const scrollAmount = $(window).scrollTop();
+        $('.scrollanime').each(function () {
+            const targetPosition = $(this).offset().top;
+            if(scrollAmount > targetPosition - wHeight + 60) {
+                $(this).addClass("fadeInDown");
+            }
+        });
+    });
+});
+</script>
+</head>
+
+<body style="height: 100%;">
+    <div class="container" id="wrapper">
+        <header class="header">
+            <div class="h-box">
+                <div class="h-title">
+                    <h3 class="logo-h3 typing">
+                        Welcome to
+                    </h3>
+                    <h1 class="header-h1 typing">      
+                        My Portfolio
+                    </h1>
+                    <h3 class="logo-h3 typing">
+                        ～快適で豊かなWEBサイトを～
+                    </h3>
+                </div>
+                <div class="header-menu">
+                    <nav class="h-nav globalMenuSp">
+                        <div class="header-logo">
+                            <a href="#wrapper">
+                                Kazuhiro.S
+                            </a>
+                        </div>
+                        <ul class="h-menu">
+                            <li class="h-list">
+                                <a href="#about">About</a>
+                            </li>
+                            <li class="h-list">
+                                <a href="#service">Service</a>
+                            </li class="h-list">
+                            <li class="h-list">
+                                <a href="#works">Works</a>
+                            </li>
+                            <li class="h-list">
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="navToggle">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main>
+        <section id="message">
+            <div class="message-box scrollanime updown">
+                <h2>WEB制作でこのような想いを抱えていませんか？</h2>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12 about_area-img scrollanime updown">
+                        <img class="m-img" src="message-img.jpeg" alt="">
+                    </div>
+                    <div class="col-md-6 col-xs-12 scrollanime slide-right">
+                        <p class="message_area-description-text">
+                            <i class="far fa-check-circle"></i>
+                            デザインが古くなってきたのでリニューアルを考えている
+                        </p>
+                        <p class="message_area-description-text">
+                            <i class="far fa-check-circle"></i>
+                            自分で運営できる仕組みを作りたい
+                        </p>
+                        <p class="message_area-description-text">
+                            <i class="far fa-check-circle"></i>
+                            スマートフォンに対応したサイトを作りたい
+                        </p>
+                        <p class="message_area-description-text">
+                            <i class="far fa-check-circle"></i>
+                            SEO対策からその後のフォローまでしてほしい
+                        </p>
+                    </div>
+                </div>
+                <a href="#contact" class="messsage-form">
+                    お問い合わせはこちら
+                </a>
+            </div>
+        </section>
+            <section id="about">
+                <h2 class="title scrollanime updown">About</h2>
+                <div class="about_area">
+                    <div class="about_area-img scrollanime updown">
+                        <img class="a-img" src="portfolio.jpg" alt="">
+                    </div>
+                    <div class="about_area-description scrollanime slide-right">
+                        <h3 class="profile">Profile</h3>
+                        <div class="about_area-description-text">
+                            志村　一太(しむら　かずひろ)<br>
+                            1997年　埼玉県出身<br><br>
+                            はじめまして、志村一太と申します。<br>
+                            現在、自らのスキルアップを図りたくWebサイト制作に
+                            取り組んでおります。<br>
+                            まだまだ未熟ものではございますが、お客様の期待を超えるサービスを提供できるように日々精進してまいります。<br><br>
+                            Twitterでは、毎日の積み上げを記録しています。よろしければ下記からどうぞ。
+                        </div>
+                        <div class="about_area-description-icon">
+                            <a href="https://twitter.com/kazunokono_sato">
+                                <i class="fab fa-twitter"></i><span>@kazunokono_sato</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <section id="skill">
+                <h2 class="title scrollanime updown">My skills</h2>
+                <div class="row scrollanime updown">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-html5 skill-logo"></i>
+                                <p class="skill-p">HTML5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-css3 skill-logo"></i>
+                                <p class="skill-p">CSS</p>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-bootstrap skill-logo"></i>
+                                <p class="skill-p">Bootstrap4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-js-square skill-logo"></i>
+                                <p class="skill-p">Javascript(jquery)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-php skill-logo"></i>
+                                <p class="skill-p">PHP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="skill-box-color">
+                            <div class="skill-box">
+                                <i class="fab fa-wordpress skill-logo"></i>
+                                <p class="skill-p">Wordpress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="service">
+                <h2 class="title scrollanime updown">Service</h2>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="service-box scrollanime updown">
+                            <div class="serivice-icon">
+                            <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="service-h3">コーディング</h3>
+                            <p class="service-p">お客様よりお預かりしたデザインデータを基に、適切にコーディングいたします。HTML5、構造化マークアップでのSEOに最適化したコーディングを実現いたします。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="service-box2 scrollanime updown">
+                            <div class="serivice-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                            </div>
+                            <h3 class="service-h3">レスポンシブ対応</h3>
+                            <p class="service-p">モバイルファーストと言われている現在においてレスポンシブ対応は必要不可欠となっております。PC・タブレット・スマホ、どの端末でもストレスなく閲覧できるようにレスポンシブ対応いたします。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="service-box3 scrollanime updown">
+                            <div class="serivice-icon">
+                            <i class="fab fa-wordpress"></i>
+                            </div>
+                            <h3 class="service-h3">HP/LP作成</h3>
+                            <p class="service-p">「個人でホームページを持ちたい！」 「会社の概要説明や集客のためのサイトを作りたい！」 そんなお客様のご要望をヒアリングし、ご要望に沿ったランディングページを作成いたします。現在、実績作りの為ため低価格で、制作を承っております。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="works">
+                <h2 class="title scrollanime updown">Works</h2>
+                <div class="portfolio_content scrollanime updown">
+                    <a href="https://drive.google.com/drive/folders/1LZT5ySFeenFzhSeXLbZfTurbofklmzDD?usp=sharing" class="portfolio_box">
+                    <img src="works-image1.png" class="porfolio_img">
+                    <p class="content-p" id="hover" >サンプルサイト1</p>
+                    </a> 
+                    <a href="https://drive.google.com/drive/folders/1LZT5ySFeenFzhSeXLbZfTurbofklmzDD?usp=sharing" class="portfolio_box">
+                    <img src="works-image2.png" class="porfolio_img">
+                    <p class="content-p" >サンプルサイト2</p>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1LZT5ySFeenFzhSeXLbZfTurbofklmzDD?usp=sharing" class="portfolio_box">
+                    <img src="works-image3.png" class="porfolio_img">
+                    <p class="content-p" >Airbnb模写</p>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1LZT5ySFeenFzhSeXLbZfTurbofklmzDD?usp=sharing" class="portfolio_box">
+                    <p class="andmore-p">ReadMore</p>
+                    </a>
+                </div>
+            </section>
+            <section id="contact" class="scrollanime updown">
+                <h2 class="title">Contact</h2>
+                <div class="form">
+                    <!-- class, action, methodを変更しないでください -->
+                    <form class="formrun" action="https://form.run/api/v1/r/u70yfukoyn0yeztm0o0xhl70" method="post">
+                    <!-- ↓自由に要素を追加・編集することができます -->
+                    <div class="form-content">
+                        <label>お名前</label>
+                        <input name="お名前" type="text">
+                    </div>
+
+                    <div class="form-content">
+                        <label>メールアドレス [必須]</label>
+                        <input name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required>
+                        <div data-formrun-show-if-error="メールアドレス">メールアドレスを正しく入力してください</div>
+                    </div>
+
+                    <div class="form-content">
+                        <label>お問い合わせ [必須]</label>
+                        <textarea rows="10" name="お問い合わせ" data-formrun-required></textarea>
+                        <div data-formrun-show-if-error="お問い合わせ">お問い合わせ入力してください</div>
+                    </div>
+
+                    <!-- ボット投稿をブロックするためのタグ -->
+                    <div class="_formrun_gotcha">
+                        <style media="screen">._formrun_gotcha {position:absolute!important;height:1px;width:1px;overflow:hidden;}</style>
+                        <label for="_formrun_gotcha">If you are a human, ignore this field</label>
+                        <input type="text" name="_formrun_gotcha" id="_formrun_gotcha" tabindex="-1">
+                    </div>
+
+                    <button type="submit" data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中...">送信</button>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="codebegin4.js"></script>
+</body>
+<footer>
+    &copy; 2020 Kazuhiro Shimura
+</footer>
+</html>
